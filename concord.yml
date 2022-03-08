@@ -1,0 +1,15 @@
+configuration:
+  dependencies:
+
+  arguments:
+    concordPid: ${txId}
+    concordServerUrl: "http://localhost:8001/#/process"
+
+  meta:
+    artifactId: ""
+    version: ""
+    completedStage: ""
+
+  flows:
+    default:
+      - log: "Process ID is ${concordPid}
