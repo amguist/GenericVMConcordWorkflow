@@ -12,4 +12,4 @@ configuration:
 
   flows:
     default:
-      - log: "Process ID is ${concordPid}
+      - log: "Process ID is ${concordPid}"
