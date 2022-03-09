@@ -33,7 +33,7 @@ flows:
         - log: "Environment will be: ${environment}"
 
   targetDeployment:
-
+    - log: "You are here"
 
 forms:
   deploymentForm:
