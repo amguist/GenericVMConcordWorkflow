@@ -10,6 +10,6 @@ configuration:
     version: ""
     completedStage: ""
 
-  flows:
-    default:
-      - log: "Process ID is ${concordPid}"
+flows:
+  default:
+    - log: "Process ID is ${concordPid}"
