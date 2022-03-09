@@ -13,3 +13,13 @@ configuration:
 flows:
   default:
     - log: "Process ID is ${concordPid}"
+    - form: deploymentForm
+
+
+forms:
+  deploymentForm:
+    - groupId: { label: "Group Identifier", type: "string", placeholder: "Input Artifact Group Identifier"}
+    - artifactId: { label: "Artifact Identifier", type: "string", placeholder: "Input Artifact Group Identifier"}
+    - version: { label: "Artifact Version", type: "string", placeholder: "Input Artifact Version"}
+    - environment: { label: "Environment", type: "string", placeholder: "Select Environment Type", allow: ["Development","QA","Stage","Performance","Production"]}
+
