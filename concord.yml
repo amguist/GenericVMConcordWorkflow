@@ -14,7 +14,14 @@ flows:
   default:
     - log: "Process ID is ${concordPid}"
     - form: deploymentForm
-
+    - set:
+        groupId: ${deploymentForm.groupId}
+        artifactId: ${deploymentForm.artifactId}
+        version: ${deploymentForm.version}
+        environment: ${deploymentForm.environment}
+    - switch: ${environment}
+      default:
+        - log: "Environment will be: ${environment}"
 
 forms:
   deploymentForm:
