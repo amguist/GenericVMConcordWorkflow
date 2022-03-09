@@ -20,6 +20,8 @@ flows:
         version: ${deploymentForm.version}
         environment: ${deploymentForm.environment}
     - switch: ${environment}
+      Development:
+        - form: developmentForm
       default:
         - log: "Environment will be: ${environment}"
 
@@ -29,4 +31,7 @@ forms:
     - artifactId: { label: "Artifact Identifier", type: "string", placeholder: "Input Artifact Group Identifier"}
     - version: { label: "Artifact Version", type: "string", placeholder: "Input Artifact Version"}
     - environment: { label: "Environment", type: "string", placeholder: "Select Environment Type", allow: ["Development","QA","Stage","Performance","Production"]}
+
+  developmentForm:
+    - businessUnit: { label: "Business Unit", type: "string", placeholder: "Select Business Unit", allow: ["32818"]}
 
