@@ -20,16 +20,12 @@ flows:
         artifactId: ${deploymentForm.artifactId}
         version: ${deploymentForm.version}
         environment: ${deploymentForm.environment}
-        deployToAllNodes: ${deploymentForm:deployToAllNodes}
     - switch: ${environment}
       Development:
-        - if: ${deployToAllNodes}
-          then:
-            - log: "************************************************************************************************"
-            - log: "** Initiating Deployment Prerequisites to deploy to [ ${environment} ] for all defined nodes ** "
-            - log: "************************************************************************************************"
-          else:
-            - form: developmentForm
+        - log: "************************************************************************************************"
+        - log: "** Initiating Deployment Prerequisites to deploy to [ ${environment} ] for all defined nodes ** "
+        - log: "************************************************************************************************"
+        - form: developmentForm
       default:
         - log: "Environment will be: ${environment}"
 
@@ -42,7 +38,6 @@ forms:
     - artifactId: { label: "Artifact Identifier", type: "string", placeholder: "Input Artifact Group Identifier"}
     - version: { label: "Artifact Version", type: "string", placeholder: "Input Artifact Version"}
     - environment: { label: "Environment", type: "string", placeholder: "Select Environment Type", allow: ["Development","QA","Stage","Performance","Production"]}
-    - deployToAllNodes: { label: "Deploy To All Nodes For Given Environment", type: "boolean", default: false }
 
   developmentForm:
     - businessUnit: { label: "Business Unit", type: "string", placeholder: "Select Business Unit", allow: ["32818"]}
