@@ -42,7 +42,7 @@ forms:
     - artifactId: { label: "Artifact Identifier", type: "string", placeholder: "Input Artifact Group Identifier"}
     - version: { label: "Artifact Version", type: "string", placeholder: "Input Artifact Version"}
     - environment: { label: "Environment", type: "string", placeholder: "Select Environment Type", allow: ["Development","QA","Stage","Performance","Production"]}
-    - deployToAllNodes: { label: "Deploy To All Nodes For Given Environment", type: "boolean" }
+    - deployToAllNodes: { label: "Deploy To All Nodes For Given Environment", type: "boolean", default: false }
 
   developmentForm:
     - businessUnit: { label: "Business Unit", type: "string", placeholder: "Select Business Unit", allow: ["32818"]}
