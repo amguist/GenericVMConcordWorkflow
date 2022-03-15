@@ -9,7 +9,6 @@ configuration:
     artifactId: ""
     version: ""
     completedStage: ""
-    deployToAllNodes: false
 
 flows:
   default:
@@ -26,6 +25,10 @@ flows:
         - log: "** Initiating Deployment Prerequisites to deploy to [ ${environment} ]                       ** "
         - log: "************************************************************************************************"
         - form: developmentForm
+        -set:
+          businessUnit: ${developmentForm.businessUnit}
+          serverUrl: ${developmentForm.serverAddress}
+        - call: targetDeployment
       default:
         - log: "Environment will be: ${environment}"
 
@@ -40,6 +43,6 @@ forms:
     - environment: { label: "Environment", type: "string", placeholder: "Select Environment Type", allow: ["Development","QA","Stage","Performance","Production"]}
 
   developmentForm:
-    - businessUnit: { label: "Business Unit", type: "string", placeholder: "Select Business Unit", allow: ["6000,32818"]}
-    - serverAddress: { label: "Server Address", type: "string", placeholder: "Select Server Address", allow: ["node1.neoworkz.org, us32818s4000d0a.s32818.us.wal-mart.com"]}
+    - businessUnit: { label: "Business Unit", type: "string", placeholder: "Input Business Unit(s)"}
+    - serverAddress: { label: "Server Address", type: "string", placeholder: "Input Server Address(es)"}
 
