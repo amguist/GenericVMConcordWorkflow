@@ -26,7 +26,6 @@ flows:
         - log: "************************************************************************************************"
         - form: developmentForm
         - set:
-            businessUnit: ${developmentForm.businessUnit}
             serverUrl: ${developmentForm.serverAddress}
         - call: targetDeployment
       default:
@@ -43,6 +42,5 @@ forms:
     - environment: { label: "Environment", type: "string", placeholder: "Select Environment Type", allow: ["Development","QA","Stage","Performance","Production"]}
 
   developmentForm:
-    - businessUnit: { label: "Business Unit", type: "string", placeholder: "Input Business Unit(s)"}
     - serverAddress: { label: "Server Address", type: "string", placeholder: "Input Server Address(es)"}
 
