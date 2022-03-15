@@ -21,18 +21,36 @@ flows:
         environment: ${deploymentForm.environment}
     - switch: ${environment}
       Development:
-        - log: "************************************************************************************************"
-        - log: "** Initiating Deployment Prerequisites to deploy to [ ${environment} ]                       ** "
-        - log: "************************************************************************************************"
         - form: developmentForm
         - set:
             serverUrl: ${developmentForm.serverAddress}
         - call: targetDeployment
+          in: 
+            targetEnv: ${environment}
+            targetURL: ${serverUrl}
       default:
         - log: "Environment will be: ${environment}"
 
   targetDeployment:
-    - log: "You are here"
+    - if: ${targetURL != ""}
+      then:
+        - log: "************************************************************************************************"
+        - log: "** Initiating Deployment Prerequisites to deploy to [ ${environment} ]                       ** "
+        - log: "************************************************************************************************"
+        - try:
+          - if: ${targetEnv != "Production"}
+            then:
+              - log: "****************************************************************************"
+              - log: "** Performing deployment to Non-Production Environment: [ ${targetEnv} ]  **"
+              - log: "****************************************************************************"
+            else:
+              - log: "****************************************************************************"
+              - log: "** Performing deployment to Production Environment: [ ${targetEnv} ]  **"
+              - log: "****************************************************************************"
+          error:
+            - log: "Exception has been caught --- ${lastError.getCause()}
+            - throw: ${lastError.message}
+        
 
 forms:
   deploymentForm:
