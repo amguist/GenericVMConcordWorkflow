@@ -25,9 +25,9 @@ flows:
         - log: "** Initiating Deployment Prerequisites to deploy to [ ${environment} ]                       ** "
         - log: "************************************************************************************************"
         - form: developmentForm
-        -set:
-          businessUnit: ${developmentForm.businessUnit}
-          serverUrl: ${developmentForm.serverAddress}
+        - set:
+            businessUnit: ${developmentForm.businessUnit}
+            serverUrl: ${developmentForm.serverAddress}
         - call: targetDeployment
       default:
         - log: "Environment will be: ${environment}"
