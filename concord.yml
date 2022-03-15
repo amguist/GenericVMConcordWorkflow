@@ -23,7 +23,7 @@ flows:
     - switch: ${environment}
       Development:
         - log: "************************************************************************************************"
-        - log: "** Initiating Deployment Prerequisites to deploy to [ ${environment} ] for all defined nodes ** "
+        - log: "** Initiating Deployment Prerequisites to deploy to [ ${environment} ]                       ** "
         - log: "************************************************************************************************"
         - form: developmentForm
       default:
@@ -40,6 +40,6 @@ forms:
     - environment: { label: "Environment", type: "string", placeholder: "Select Environment Type", allow: ["Development","QA","Stage","Performance","Production"]}
 
   developmentForm:
-    - businessUnit: { label: "Business Unit", type: "string", placeholder: "Select Business Unit", allow: ["32818"]}
-    - serverAddress: { label: "Server Address", type: "string", placeholder: "Select Server Address", allow: ["us32818s4000d0a.s32818.us.wal-mart.com"]}
+    - businessUnit: { label: "Business Unit", type: "string", placeholder: "Select Business Unit", allow: ["6000,32818"]}
+    - serverAddress: { label: "Server Address", type: "string", placeholder: "Select Server Address", allow: ["node1.neoworkz.org, us32818s4000d0a.s32818.us.wal-mart.com"]}
 
