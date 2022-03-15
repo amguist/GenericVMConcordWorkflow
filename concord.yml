@@ -9,6 +9,7 @@ configuration:
     artifactId: ""
     version: ""
     completedStage: ""
+    deployToAllNodes: false
 
 flows:
   default:
@@ -45,4 +46,5 @@ forms:
 
   developmentForm:
     - businessUnit: { label: "Business Unit", type: "string", placeholder: "Select Business Unit", allow: ["32818"]}
+    - serverAddress: { label: "Server Address", type: "string", placeholder: "Select Server Address", allow: ["us32818s4000d0a.s32818.us.wal-mart.com"]}
 
