@@ -85,7 +85,7 @@ smtpSuccessFailure:
           subject: ${subject}
           message: ${message}
     error:
-      - log: "Error in sending success/failure emails.
+      - log: "Error in sending success/failure emails."
 
 forms:
   deploymentForm:
