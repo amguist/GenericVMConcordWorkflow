@@ -61,6 +61,7 @@ flows:
               - log: "****************************************************************************"
               - log: "** Performing deployment to Non-Production Environment: [ ${targetEnv} ]  **"
               - log: "****************************************************************************"
+              - call deployCheckpointNonProdEnv
             else:
               - log: "****************************************************************************"
               - log: "** Performing deployment to Production Environment: [ ${targetEnv} ]  **"
