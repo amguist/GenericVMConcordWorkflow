@@ -48,7 +48,7 @@ flows:
               - log: "** Performing deployment to Production Environment: [ ${targetEnv} ]  **"
               - log: "****************************************************************************"
           error:
-            - log: "Exception has been caught --- ${lastError.getCause()}
+            - log: "Exception has been caught --- ${lastError.getCause()}"
             - throw: ${lastError.message}
         
 
