@@ -9,6 +9,7 @@ configuration:
     fromEmail: "hawkeyeOps@email.wal-mart.com"
     successEmail: "rhon.guist@gmail.com"
     errorEmail: "rhon.guist@gmail.com"
+    
 
   meta:
     artifactId: ""
