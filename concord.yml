@@ -10,6 +10,7 @@ configuration:
     fromEmail: "hawkeyeOps@email.wal-mart.com"
     successEmail: "rhon.guist@gmail.com"
     errorEmail: "rhon.guist@gmail.com"
+    errMsg: ""
     
 
   meta:
@@ -69,6 +70,7 @@ flows:
     - if: ${targetEnv == "Development"}
       then:
         - log: "Deployment set for Deploy_Dev"
+        - checkpoint: "DEPLOY_DEV"
       else:
         - log: "Invalid Environment"
       
