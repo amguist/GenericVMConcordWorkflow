@@ -73,7 +73,9 @@ flows:
 deployCheckpointNonProdEnv:
   - if: ${targetEnv == "Development"}
     then:
-      - checkpoint: "Deploy_Dev"
+      - log: "Deployment set for Deploy_Dev"
+    else:
+      - log: "Invalid Environment"
       
       
 smtpSuccessFailure:
