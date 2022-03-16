@@ -70,25 +70,25 @@ flows:
             - log: "Exception has been caught --- ${lastError.getCause()}"
             - throw: ${lastError.message}
 
-deployCheckpointNonProdEnv:
-  - if: ${targetEnv == "Development"}
-    then:
-      - log: "Deployment set for Deploy_Dev"
-    else:
-      - log: "Invalid Environment"
+  deployCheckpointNonProdEnv:
+    - if: ${targetEnv == "Development"}
+      then:
+        - log: "Deployment set for Deploy_Dev"
+      else:
+        - log: "Invalid Environment"
       
       
-smtpSuccessFailure:
-  - try:
-    - task: smtp
-      in:
-        mail:
-          from: ${fromEmail}
-          to: ${toEmail}
-          subject: ${subject}
-          message: ${message}
-    error:
-      - log: "Error in sending success/failure emails."
+  smtpSuccessFailure:
+    - try:
+      - task: smtp
+        in:
+          mail:
+            from: ${fromEmail}
+            to: ${toEmail}
+            subject: ${subject}
+            message: ${message}
+      error:
+        - log: "Error in sending success/failure emails."
 
 forms:
   deploymentForm:
