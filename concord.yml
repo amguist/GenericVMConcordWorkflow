@@ -6,11 +6,15 @@ configuration:
 
   arguments:
     concordPid: ${txId}
+    inventoryFile: "_attachments/inventory.ini"
+    ansibleStatFile: "_attachments/ansible_stats.json"
     concordServerUrl: "http://localhost:8001/#/process"
     fromEmail: "hawkeyeOps@email.wal-mart.com"
     successEmail: "rhon.guist@gmail.com"
     errorEmail: "rhon.guist@gmail.com"
     errMsg: ""
+    node: ""
+    deploySeccess: true
     
 
   meta:
@@ -75,7 +79,7 @@ flows:
     - if: ${targetEnv == "Development"}
       then:
         - log: "Deployment set for Deploy_Dev"
-        - checkpoint: "DEPLOY_DEV"
+        - checkpoint: "Development"
       else:
         - log: "Invalid Environment"
       
